@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>15 de Mora</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel+Decorative:wght@400;700&family=Great+Vibes&family=Dancing+Script:wght@700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="glitterContainer"></div>
+
+  <!-- Pantalla de Invitación con Foto -->
+  <section class="screen" id="screen-invitation">
+    <div class="invitation-container">
+      <!-- Columna Izquierda: Texto e Invitación -->
+      <div class="invitation-left-column">
+        <div class="invitation-content">
+          <div class="invitation-text">Te invito a mis</div>
+          <div class="invitation-number">
+            <svg viewBox="0 0 500 320" preserveAspectRatio="xMidYMid meet" style="width: 100%; max-width: 500px; height: auto;">
+              <defs>
+                <!-- Patrón realista de glitter bokeh como la imagen -->
+                <pattern id="glitterBokeh15" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+                  <!-- Bokeh grande fondo (desenfocado suave) -->
+                  <circle cx="12" cy="18" r="12" fill="#c9a874" opacity="0.25"/>
+                  <circle cx="55" cy="25" r="14" fill="#d4b896" opacity="0.2"/>
+                  <circle cx="30" cy="58" r="11" fill="#b89968" opacity="0.28"/>
+                  <circle cx="50" cy="48" r="13" fill="#cba482" opacity="0.22"/>
+                  <circle cx="8" cy="50" r="10" fill="#d4b896" opacity="0.25"/>
+                  
+                  <!-- Bokeh mediano brillante -->
+                  <circle cx="22" cy="35" r="6.5" fill="#ffffff" opacity="0.75"/>
+                  <circle cx="48" cy="18" r="7" fill="#f5e6d3" opacity="0.7"/>
+                  <circle cx="35" cy="52" r="5" fill="#fffdf5" opacity="0.8"/>
+                  <circle cx="60" cy="40" r="6" fill="#ffecd5" opacity="0.65"/>
+                  <circle cx="15" cy="65" r="5.5" fill="#ffffff" opacity="0.72"/>
+                  
+                  <!-- Bokeh pequeño puntual -->
+                  <circle cx="38" cy="15" r="3" fill="#ffffff" opacity="0.9"/>
+                  <circle cx="58" cy="58" r="2.8" fill="#ffd7aa" opacity="0.85"/>
+                  <circle cx="25" cy="48" r="2.2" fill="#ffffff" opacity="0.88"/>
+                  <circle cx="42" cy="40" r="2.5" fill="#ffe8c9" opacity="0.8"/>
+                  <circle cx="10" cy="28" r="1.8" fill="#ffffff" opacity="0.92"/>
+                  <circle cx="55" cy="5" r="2.3" fill="#ffd7aa" opacity="0.82"/>
+                  
+                  <!-- Micro detalles -->
+                  <circle cx="32" cy="25" r="1.2" fill="#ffffff" opacity="0.95"/>
+                  <circle cx="18" cy="12" r="1" fill="#ffd7aa" opacity="0.88"/>
+                  <circle cx="50" cy="55" r="1.3" fill="#ffffff" opacity="0.9"/>
+                  
+                  <!-- Líneas/chispas naturales -->
+                  <line x1="20" y1="65" x2="28" y2="60" stroke="#ffffff" stroke-width="0.9" opacity="0.6"/>
+                  <line x1="45" y1="30" x2="50" y2="35" stroke="#ffd7aa" stroke-width="0.7" opacity="0.55"/>
+                  <line x1="15" y1="40" x2="20" y2="38" stroke="#ffffff" stroke-width="0.8" opacity="0.65"/>
+                  <line x1="55" y1="15" x2="60" y2="20" stroke="#ffe8c9" stroke-width="0.6" opacity="0.5"/>
+                  <line x1="35" y1="8" x2="40" y2="12" stroke="#ffffff" stroke-width="0.75" opacity="0.58"/>
+                </pattern>
+
+                <!-- Filtro de turbulencia realista -->
+                <filter id="glitterBrillo15">
+                  <feTurbulence type="fractalNoise" baseFrequency="0.82" numOctaves="6" result="noise" seed="7"/>
+                  <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.8" result="displaced"/>
+                  <feBlend in="displaced" in2="SourceGraphic" mode="lighten"/>
+                </filter>
+
+                <!-- Filtro de brillo especular suave -->
+                <filter id="brilloOcre15">
+                  <feGaussianBlur in="SourceAlpha" stdDeviation="3.5" result="blur"/>
+                  <feSpecularLighting in="blur" surfaceScale="7" specularConstant="1.8" specularExponent="60" lighting-color="#f5e6d3" result="spec">
+                    <fePointLight x="140" y="50" z="110"/>
+                  </feSpecularLighting>
+                  <feBlend in="SourceGraphic" in2="spec" mode="screen"/>
+                </filter>
+
+                <!-- Gradiente dorado suave -->
+                <linearGradient id="ocreGradient15" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" style="stop-color:#e8d4b8;stop-opacity:1"/>
+                  <stop offset="50%" style="stop-color:#D4AF37;stop-opacity:1"/>
+                  <stop offset="100%" style="stop-color:#a08860;stop-opacity:1"/>
+                </linearGradient>
+
+                <!-- Filtro de sombra difuminada marrón claro -->
+                <filter id="shadowBrown15">
+                  <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="coloredBlur"/>
+                </filter>
+
+                <!-- Filtro de borde difuminado -->
+                <filter id="borderBlur15">
+                  <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="coloredBlur"/>
+                </filter>
+
+                <!-- Filtro de borde desvanecido muy fino -->
+                <filter id="fadingBorder15">
+                  <feGaussianBlur in="SourceGraphic" stdDeviation="1.2" result="blur"/>
+                  <feBlend in="SourceGraphic" in2="blur" mode="normal"/>
+                </filter>
+              </defs>
+
+              <!-- Sombra profunda marrón oscuro para efecto 3D -->
+              <text x="250" y="180" font-family="Century, cursive" font-size="200" font-style="italic" font-weight="bold" text-anchor="middle" fill="#6B5342" opacity="0.35" filter="url(#shadowBrown15)" letter-spacing="5" transform="translate(0, 12)">15</text>
+              
+              <!-- Sombra media para profundidad adicional -->
+              <text x="250" y="180" font-family="Century, cursive" font-size="200" font-style="italic" font-weight="bold" text-anchor="middle" fill="#8B6F47" opacity="0.25" filter="url(#shadowBrown15)" letter-spacing="5" transform="translate(0, 6)">15</text>
+              
+              <!-- Borde muy fino desvanecido marrón -->
+              <text x="250" y="180" font-family="Century, cursive" font-size="200" font-style="italic" font-weight="bold" text-anchor="middle" fill="none" stroke="#9B8B7D" stroke-width="1" opacity="0.4" filter="url(#fadingBorder15)" letter-spacing="5">15</text>
+              
+              <!-- Borde difuminado marrón para mejor legibilidad -->
+              <text x="250" y="180" font-family="Century, cursive" font-size="200" font-style="italic" font-weight="bold" text-anchor="middle" fill="none" stroke="#8B6F47" stroke-width="4" opacity="0.5" filter="url(#borderBlur15)" letter-spacing="5">15</text>
+              
+              <!-- Texto con relleno bokeh realista -->
+              <text x="250" y="180" font-family="Century, cursive" font-size="200" font-style="italic" font-weight="bold" text-anchor="middle" fill="url(#glitterBokeh15)" stroke="url(#glitterBokeh15)" stroke-width="3" filter="url(#glitterBrillo15)" letter-spacing="5">15</text>
+            </svg>
+          </div>
+          <div class="invitation-name">
+            <svg viewBox="0 0 600 280" preserveAspectRatio="xMidYMid meet" style="width: 100%; max-width: 600px; height: auto;">
+              <defs>
+                <!-- Patrón realista bokeh para Mora -->
+                <pattern id="glitterBokehMora" x="0" y="0" width="55" height="55" patternUnits="userSpaceOnUse">
+                  <!-- Bokeh grande fondo -->
+                  <circle cx="11" cy="16" r="11" fill="#c9a874" opacity="0.26"/>
+                  <circle cx="50" cy="22" r="13" fill="#d4b896" opacity="0.21"/>
+                  <circle cx="28" cy="52" r="10" fill="#b89968" opacity="0.29"/>
+                  <circle cx="45" cy="44" r="12" fill="#cba482" opacity="0.23"/>
+                  <circle cx="7" cy="46" r="9" fill="#d4b896" opacity="0.26"/>
+                  
+                  <!-- Bokeh mediano brillante -->
+                  <circle cx="20" cy="32" r="6" fill="#ffffff" opacity="0.76"/>
+                  <circle cx="44" cy="16" r="6.5" fill="#f5e6d3" opacity="0.71"/>
+                  <circle cx="32" cy="48" r="4.5" fill="#fffdf5" opacity="0.81"/>
+                  <circle cx="55" cy="37" r="5.5" fill="#ffecd5" opacity="0.66"/>
+                  <circle cx="13" cy="60" r="5" fill="#ffffff" opacity="0.73"/>
+                  
+                  <!-- Bokeh pequeño puntual -->
+                  <circle cx="35" cy="13" r="2.8" fill="#ffffff" opacity="0.91"/>
+                  <circle cx="52" cy="54" r="2.6" fill="#ffd7aa" opacity="0.86"/>
+                  <circle cx="23" cy="44" r="2" fill="#ffffff" opacity="0.89"/>
+                  <circle cx="39" cy="37" r="2.3" fill="#ffe8c9" opacity="0.81"/>
+                  <circle cx="9" cy="26" r="1.7" fill="#ffffff" opacity="0.93"/>
+                  
+                  <!-- Micro detalles -->
+                  <circle cx="30" cy="22" r="1.1" fill="#ffffff" opacity="0.96"/>
+                  <circle cx="16" cy="10" r="0.9" fill="#ffd7aa" opacity="0.89"/>
+                  <circle cx="48" cy="52" r="1.2" fill="#ffffff" opacity="0.91"/>
+                  
+                  <!-- Líneas/chispas -->
+                  <line x1="18" y1="58" x2="25" y2="54" stroke="#ffffff" stroke-width="0.85" opacity="0.62"/>
+                  <line x1="42" y1="28" x2="46" y2="32" stroke="#ffd7aa" stroke-width="0.65" opacity="0.57"/>
+                  <line x1="13" y1="37" x2="18" y2="35" stroke="#ffffff" stroke-width="0.75" opacity="0.67"/>
+                  <line x1="50" y1="12" x2="55" y2="16" stroke="#ffe8c9" stroke-width="0.55" opacity="0.52"/>
+                </pattern>
+
+                <!-- Filtro de turbulencia para Mora -->
+                <filter id="glitterBrilloMora">
+                  <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="6" result="noise" seed="8"/>
+                  <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.6" result="displaced"/>
+                  <feBlend in="displaced" in2="SourceGraphic" mode="lighten"/>
+                </filter>
+
+                <!-- Filtro de brillo especular Mora -->
+                <filter id="brilloOcreMora">
+                  <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+                  <feSpecularLighting in="blur" surfaceScale="6.5" specularConstant="1.7" specularExponent="55" lighting-color="#f5e6d3" result="spec">
+                    <fePointLight x="160" y="45" z="100"/>
+                  </feSpecularLighting>
+                  <feBlend in="SourceGraphic" in2="spec" mode="screen"/>
+                </filter>
+
+                <!-- Gradiente dorado suave para Mora -->
+                <linearGradient id="ocreGradientMora" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" style="stop-color:#e8d4b8;stop-opacity:1"/>
+                  <stop offset="50%" style="stop-color:#D4AF37;stop-opacity:1"/>
+                  <stop offset="100%" style="stop-color:#a08860;stop-opacity:1"/>
+                </linearGradient>
+
+                <!-- Filtro de borde difuminado para Mora -->
+                <filter id="borderBlurMora">
+                  <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="coloredBlur"/>
+                </filter>
+
+                <!-- Filtro de borde desvanecido muy fino para Mora -->
+                <filter id="fadingBorderMora">
+                  <feGaussianBlur in="SourceGraphic" stdDeviation="1" result="blur"/>
+                  <feBlend in="SourceGraphic" in2="blur" mode="normal"/>
+                </filter>
+              </defs>
+
+              <!-- Sombra profunda marrón oscuro para efecto 3D -->
+              <text x="300" y="160" font-family="Century, cursive" font-size="160" font-style="italic" font-weight="bold" text-anchor="middle" fill="#6B5342" opacity="0.35" filter="url(#shadowBrown15)" letter-spacing="4" transform="translate(0, 10)">Mora</text>
+              
+              <!-- Sombra media para profundidad adicional -->
+              <text x="300" y="160" font-family="Century, cursive" font-size="160" font-style="italic" font-weight="bold" text-anchor="middle" fill="#8B6F47" opacity="0.25" filter="url(#shadowBrown15)" letter-spacing="4" transform="translate(0, 5)">Mora</text>
+              
+              <!-- Borde muy fino desvanecido marrón -->
+              <text x="300" y="160" font-family="Century, cursive" font-size="160" font-style="italic" font-weight="bold" text-anchor="middle" fill="none" stroke="#9B8B7D" stroke-width="0.8" opacity="0.4" filter="url(#fadingBorderMora)" letter-spacing="4">Mora</text>
+              
+              <!-- Borde difuminado marrón para mejor legibilidad -->
+              <text x="300" y="160" font-family="Century, cursive" font-size="160" font-style="italic" font-weight="bold" text-anchor="middle" fill="none" stroke="#8B6F47" stroke-width="3.5" opacity="0.5" filter="url(#borderBlurMora)" letter-spacing="4">Mora</text>
+              
+              <!-- Texto con Century cursiva relleno con patrón bokeh glitter -->
+              <text x="300" y="160" font-family="Century, cursive" font-size="160" font-style="italic" font-weight="bold" text-anchor="middle" fill="url(#glitterBokehMora)" stroke="url(#glitterBokehMora)" stroke-width="2.5" filter="url(#glitterBrilloMora)" letter-spacing="4">Mora</text>
+            </svg>
+          </div>
+          <div class="countdown">
+            <div style="font-weight: bold; color: var(--text-dark);">Faltan:</div>
+            <div class="countdown-detail">
+              <div class="countdown-unit">
+                <div class="countdown-value" id="countdown-days">0</div>
+                <div class="countdown-label">Días</div>
+              </div>
+              <div class="countdown-unit">
+                <div class="countdown-value" id="countdown-hours">0</div>
+                <div class="countdown-label">Horas</div>
+              </div>
+              <div class="countdown-unit">
+                <div class="countdown-value" id="countdown-minutes">0</div>
+                <div class="countdown-label">Min</div>
+              </div>
+              <div class="countdown-unit">
+                <div class="countdown-value" id="countdown-seconds">0</div>
+                <div class="countdown-label">Seg</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Columna Derecha: Foto -->
+      <div class="invitation-right-column">
+        <div class="mora-photo-section">
+          <img src="mora-photo.jpg" alt="Mora" class="mora-photo">
+        </div>
+      </div>
+    </div>
+
+    <!-- Sección de Spotify debajo de ambas columnas -->
+    <div style="width: 100%; max-width: 100%; margin-top: 40px;">
+      <div class="spotify-section">
+          <div style="text-align: center; margin-bottom: 25px; padding: 15px; background: rgba(212, 175, 55, 0.1); border-radius: 10px; border: 2px solid var(--gold);">
+            <div style="font-size: 14px; color: var(--text-dark);">🎵 Ahora reproduciendo</div>
+            <div style="font-size: 18px; font-weight: bold; color: var(--gold); margin-top: 8px;">Tema especial para ti</div>
+          </div>
+          
+          <div style="display: flex; justify-content: center; margin-bottom: 30px;">
+            <iframe style="border-radius: 12px;" src="https://open.spotify.com/embed/track/3cHyrEgdyYRjgJKSOiOtcS?utm_source=generator" width="100%" height="152" frameBorder="0" allowFullScreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          </div>
+          
+          <h3 style="color: var(--text-dark); margin-bottom: 15px; font-size: 20px; text-align: center;">Playlist de la Fiesta</h3>
+          <div style="display: flex; justify-content: center;">
+            <iframe style="border-radius: 12px;" src="https://open.spotify.com/embed/playlist/23H2zC2Snq8hGKEWyxKGzJ?utm_source=generator" width="100%" height="380" frameBorder="0" allowFullScreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          </div>
+          <button onclick="suggestMusic()" class="suggest-btn" style="margin-top: 20px; width: 100%;">Sugerir una canción</button>
+        </div>
+    </div>
+  </section>
+
+  <!-- Pantalla de Frase Especial -->
+  <section class="screen" id="screen-phrase">
+    <div class="phrase-box">
+      <p>Hay momentos que se guardan para siempre, quiero vivir unos de esos momentos a tu lado, junto a mi familia, celebrando esta etapa tan especial</p>
+    </div>
+  </section>
+
+  <!-- Pantalla de Detalles del Evento -->
+  <section class="screen" id="screen-details">
+    <h2 class="details-title">Detalles del evento</h2>
+    <div class="details-container">
+      <div class="detail-item">
+        <div class="detail-label">Lugar:</div>
+        <div class="detail-value">Club Recreativo, Viamonte Córdoba</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-label">Fecha:</div>
+        <div class="detail-value">23 de mayo de 2026</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-label">Horario:</div>
+        <div class="detail-value">21:30</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-label">Valor:</div>
+        <div class="detail-value">$70.000</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-label">Confirmación:</div>
+        <div class="detail-value">10/05/2026 se confirma con el valor total</div>
+      </div>
+      <div class="payment-section">
+        <div class="detail-label">Alias de pago:</div>
+        <div class="detail-value" style="margin-top: 8px; font-family: monospace; font-size: 18px;">mora.baiud.13</div>
+      </div>
+    </div>
+    <div class="map-container">
+      <a href="https://maps.app.goo.gl/ThZLt4gzLWMYykS49" target="_blank">
+        <div style="text-align: center;">
+          <div>Haz clic para ver la ubicación en Google Maps</div>
+          <div style="font-size: 14px; margin-top: 10px; color: var(--gold);">Club Recreativo, Viamonte Córdoba</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Pantalla de Confirmación -->
+  <section class="screen" id="screen-confirmation">
+    <div class="confirmation-text">
+      Me encantaría que compartas este momento tan especial conmigo
+    </div>
+    <div class="confirmation-question">
+      ¿Nos vas a acompañar?
+    </div>
+    <div class="button-container">
+      <a href="https://wa.me/?text=Hola Mora, quería confirmar mi asistencia a tus 15 años 🎉" class="btn btn-gold" target="_blank">
+        💬 Confirmar asistencia por WhatsApp
+      </a>
+    </div>
+    <div class="signature">Mora</div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

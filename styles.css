@@ -1,0 +1,576 @@
+*, *::before, *::after { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+:root {
+  --bg-main: #F0EBEB;
+  --gold: #D4AF37;
+  --text-dark: #341E14;
+  --white: #FFFFFF;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-main);
+  font-family: 'Cormorant Garamond', serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+#glitterContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 50;
+}
+
+.screen {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 40px 20px;
+  position: relative;
+}
+
+/* Pantalla de Invitación */
+#screen-invitation {
+  background-color: var(--bg-main);
+}
+
+.invitation-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.mora-photo-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.mora-photo {
+  width: 392px;
+  height: 588px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.invitation-left-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 300px;
+}
+
+.invitation-right-column {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 300px;
+}
+
+.mora-invitation-center {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-top: 0;
+}
+
+.invitation-content {
+  text-align: center;
+  padding-top: 80px;
+}
+
+.invitation-number {
+  font-size: 168px;
+  font-weight: bold;
+  line-height: 1;
+  font-family: 'Cinzel Decorative', serif;
+  color: var(--gold);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.invitation-number svg {
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+}
+
+.invitation-text {
+  font-size: 43px;
+  color: var(--text-dark);
+  margin: 20px 0;
+  font-family: 'Libre Baskerville', serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.invitation-name {
+  font-size: 65px;
+  color: var(--gold);
+  font-style: italic;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: -20px 0;
+}
+
+.invitation-name svg {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+}
+
+.countdown {
+  font-size: 26px;
+  color: var(--text-dark);
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.countdown-detail {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.countdown-unit {
+  text-align: center;
+}
+
+.countdown-value {
+  font-size: 48px;
+  color: var(--gold);
+  font-weight: bold;
+  font-family: 'Cinzel Decorative', serif;
+}
+
+.countdown-label {
+  font-size: 14px;
+  color: var(--text-dark);
+  margin-top: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.spotify-section {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.suggest-btn {
+  padding: 14px 24px;
+  background-color: var(--gold);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.suggest-btn:hover {
+  background-color: #C9A043;
+  transform: scale(1.05);
+  box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+}
+
+.suggest-btn:active {
+  transform: scale(0.98);
+}
+
+/* Pantalla de Frase */
+#screen-phrase {
+  background-color: var(--bg-main);
+}
+
+.phrase-box {
+  max-width: 700px;
+  text-align: center;
+  font-size: 36px;
+  color: var(--text-dark);
+  line-height: 1.8;
+  font-style: italic;
+  letter-spacing: 0.5px;
+}
+
+.emoji {
+  color: var(--white);
+  font-size: 54px;
+  margin: 20px;
+  display: inline-block;
+}
+
+/* Pantalla de Detalles */
+#screen-details {
+  background-color: var(--bg-main);
+  flex-direction: column;
+  gap: 30px;
+}
+
+.details-title {
+  font-size: 54px;
+  color: var(--gold);
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.details-container {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  padding: 40px;
+  max-width: 700px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.detail-item {
+  margin: 20px 0;
+  font-size: 22px;
+  color: var(--text-dark);
+  border-bottom: 2px solid rgba(52, 30, 20, 0.1);
+  padding-bottom: 20px;
+}
+
+.detail-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.detail-label {
+  font-weight: bold;
+  color: var(--gold);
+  font-size: 24px;
+}
+
+.detail-value {
+  color: var(--text-dark);
+  margin-top: 8px;
+  font-size: 20px;
+}
+
+.payment-section {
+  background-color: #FFF9F0;
+  border-left: 5px solid var(--gold);
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+}
+
+.map-container {
+  width: 100%;
+  max-width: 700px;
+  height: 350px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+}
+
+.map-container a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: #f0f0f0;
+  text-decoration: none;
+  color: var(--text-dark);
+  transition: all 0.3s ease;
+}
+
+.map-container a:hover {
+  background-color: #e0e0e0;
+}
+
+/* Pantalla de Confirmación */
+#screen-confirmation {
+  background-color: var(--bg-main);
+  flex-direction: column;
+  gap: 30px;
+}
+
+.confirmation-text {
+  max-width: 600px;
+  text-align: center;
+  font-size: 32px;
+  color: var(--text-dark);
+  line-height: 1.8;
+}
+
+.confirmation-question {
+  font-size: 42px;
+  color: var(--text-dark);
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.button-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn {
+  padding: 18px 45px;
+  font-size: 20px;
+  border: 2px solid;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: 'Cormorant Garamond', serif;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-gold {
+  background-color: var(--gold);
+  color: var(--white);
+  border-color: var(--gold);
+}
+
+.btn-gold:hover {
+  background-color: #C9A043;
+  border-color: #C9A043;
+  transform: scale(1.05);
+  box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+}
+
+.signature {
+  font-size: 54px;
+  color: var(--gold);
+  font-style: italic;
+  font-weight: bold;
+  margin-top: 20px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 
+               0 0 15px rgba(212, 175, 55, 0.5),
+               0 0 25px rgba(255, 215, 0, 0.3);
+}
+
+/* Animaciones */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+
+.screen {
+  animation: fadeIn 0.8s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .invitation-container {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .invitation-left-column {
+    align-items: center;
+    text-align: center;
+  }
+
+  .invitation-content {
+    text-align: center;
+  }
+
+  .countdown {
+    align-items: center;
+  }
+
+  .countdown-detail {
+    justify-content: center;
+  }
+
+  .mora-photo {
+    width: 200px;
+    height: 300px;
+  }
+
+  .invitation-number {
+    font-size: 100px;
+  }
+
+  .invitation-text {
+    font-size: 28px;
+  }
+
+  .invitation-name {
+    font-size: 42px;
+  }
+}
+
+@media (max-width: 768px) {
+  .screen {
+    padding: 30px 15px;
+    min-height: auto;
+  }
+
+  .invitation-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .invitation-left-column {
+    align-items: center;
+    text-align: center;
+  }
+
+  .invitation-content {
+    text-align: center;
+  }
+
+  .countdown {
+    align-items: center;
+  }
+
+  .countdown-detail {
+    justify-content: center;
+  }
+
+  .mora-photo {
+    width: 180px;
+    height: 270px;
+  }
+
+  .invitation-number {
+    font-size: 80px;
+  }
+
+  .invitation-text {
+    font-size: 24px;
+  }
+
+  .invitation-name {
+    font-size: 36px;
+  }
+
+  .countdown-detail {
+    gap: 15px;
+  }
+
+  .countdown-value {
+    font-size: 32px;
+  }
+
+  .phrase-box {
+    font-size: 26px;
+  }
+
+  .details-title {
+    font-size: 36px;
+  }
+
+  .details-container {
+    padding: 25px;
+  }
+
+  .detail-label {
+    font-size: 18px;
+  }
+
+  .detail-value {
+    font-size: 16px;
+  }
+
+  .confirmation-question {
+    font-size: 28px;
+  }
+
+  .confirmation-text {
+    font-size: 22px;
+  }
+
+  .btn {
+    padding: 14px 30px;
+    font-size: 16px;
+  }
+
+  .signature {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .screen {
+    padding: 20px 10px;
+  }
+
+  .mora-photo {
+    width: 150px;
+    height: 225px;
+  }
+
+  .invitation-number {
+    font-size: 60px;
+  }
+
+  .invitation-text {
+    font-size: 18px;
+  }
+
+  .invitation-name {
+    font-size: 28px;
+  }
+
+  .countdown-label {
+    font-size: 11px;
+  }
+
+  .phrase-box {
+    font-size: 20px;
+  }
+
+  .details-container {
+    padding: 15px;
+  }
+
+  .spotify-section {
+    max-width: 100%;
+  }
+}
